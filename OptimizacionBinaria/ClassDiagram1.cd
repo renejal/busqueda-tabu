@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OptimizacionBasica.Funciones.Funcion">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgY=</HashCode>
+      <FileName>Funciones\Funcion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Funciones.Ackley">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Funciones\Ackley.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Funciones.Griewank">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Funciones\Griewank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.Solucion" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="MiAlgoritmo" Type="OptimizacionBasica.Metaheuristicas.EstadoSimple.Algoritmo">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.141" Y="0.154" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgIAAAACAEAAAAAAIAAAAAAAAQAAAAABAAAEA=</HashCode>
+      <FileName>Metaheuristicas\Solucion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="miFuncion" />
+      <Field Name="MiAlgoritmo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.EstadoSimple.Algoritmo">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <AssociationLine Name="MejorSolucion" Type="OptimizacionBasica.Metaheuristicas.Solucion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.213" Y="0.175" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAQAAAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Metaheuristicas\EstadoSimple\Algoritmo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MejorSolucion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.EstadoSimple.HC.AscensoColina">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAABAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Metaheuristicas\EstadoSimple\HC\AscensoColina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.EstadoSimple.HC.AscensoColinaConReinicios">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAABgAAAAAAAgAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Metaheuristicas\EstadoSimple\HC\AscensoColinaConReinicios.cs</FileName>
+      <NewMemberFileName>Metaheuristicas\EstadoSimple\HC\AscensoColina.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.EstadoSimple.HC.AscensoColinaMaximaPendiente">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAABCAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Metaheuristicas\EstadoSimple\HC\AscensoColinaMaximaPendiente.cs</FileName>
+      <NewMemberFileName>Metaheuristicas\EstadoSimple\HC\AscensoColina.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Metaheuristicas.EstadoSimple.HC.BusquedaAleatoria">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Metaheuristicas\EstadoSimple\HC\BusquedaAleatoria.cs</FileName>
+      <NewMemberFileName>Metaheuristicas\EstadoSimple\HC\AscensoColina.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptimizacionBasica.Funciones.Rastrigin">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Funciones\Rastrigin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

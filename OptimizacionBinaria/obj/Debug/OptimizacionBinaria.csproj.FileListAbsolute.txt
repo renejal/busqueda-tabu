@@ -1,0 +1,7 @@
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\bin\Debug\OptimizacionBinaria.exe.config
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\bin\Debug\OptimizacionBinaria.exe
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\bin\Debug\OptimizacionBinaria.pdb
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\obj\Debug\OptimizacionBinaria.csprojAssemblyReference.cache
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\obj\Debug\OptimizacionBinaria.csproj.CoreCompileInputs.cache
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\obj\Debug\OptimizacionBinaria.exe
+D:\metaheuristicas\2020-05-18-Laboratorio-2-a-Knapsack-binario\OptimizacionBinaria\obj\Debug\OptimizacionBinaria.pdb
