@@ -19,7 +19,7 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
 
 
 
-        public override void Ejecutar(Knapsack parProblema, Random ParAleatorio, Random parAleatorio2)
+        public override void Ejecutar(Knapsack parProblema, Random ParAleatorio)
         {
             EFOs = 0;
 
@@ -68,9 +68,6 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
             return varRespuesta;
         }
 
-        public override void Ejecutar(Knapsack elProblema, Random aleatorio)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }

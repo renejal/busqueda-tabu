@@ -10,6 +10,6 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple
         public Solucion MejorSolucion;
 
         public abstract void Ejecutar(Knapsack elProblema, Random aleatorio);
-        public abstract void Ejecutar(Knapsack elProblema, Random aleatorio, Random aletorio2);
+    
     }
 }

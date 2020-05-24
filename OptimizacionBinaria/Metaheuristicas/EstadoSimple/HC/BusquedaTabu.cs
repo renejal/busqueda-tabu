@@ -24,7 +24,7 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
 
 
 
-        public override void Ejecutar(Knapsack parProblema, Random ParAleatorio, Random parAleatorio2)
+        public override void Ejecutar(Knapsack parProblema, Random ParAleatorio)
         {
             EFOs = 0;
 
@@ -45,7 +45,7 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
                 for (int i = 0; i < atrnumeroTweask - 1; i++)
                 {
                     var w = new Solucion(s);
-                    w.Tweak(parAleatorio2, pm, radio,atrListaTabu);
+                    w.Tweak(ParAleatorio, pm, radio,atrListaTabu);
                     if (w.fitness > r.fitness)
                         r = w;
                     s = r;
@@ -94,11 +94,6 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
                 }
             }
             return varRespuesta;
-        }
-
-        public override void Ejecutar(Knapsack elProblema, Random aleatorio)
-        {
-            throw new NotImplementedException();
         }
     }
 

@@ -50,7 +50,7 @@ namespace OptimizacionBinaria
                         var aleatorio = new Random(rep);
                         var aleatorio2 = new Random(rep + 2);
 
-                        algoritmo.Ejecutar(funcion, aleatorio , aleatorio2);
+                        algoritmo.Ejecutar(funcion, aleatorio);
                         mediaF += algoritmo.MejorSolucion.fitness;
                     }
                     mediaF = mediaF / maxRep;
