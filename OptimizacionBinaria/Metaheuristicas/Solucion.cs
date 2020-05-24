@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using OptimizacionBinaria.Funciones;
 using OptimizacionBinaria.Metaheuristicas.EstadoSimple;
+using OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC;
 
 namespace OptimizacionBinaria.Metaheuristicas
 {
@@ -56,7 +58,7 @@ namespace OptimizacionBinaria.Metaheuristicas
             Evaluar();
         }
 
-        public void Tweak(Random aleatorio, double pm, double radio)
+        public void Tweak(Random aleatorio, double pm, double radio, ArrayList parListaTabu)
         {
             // Paso 1 = Intercambiar un objeto seleccionado por uno no seleccionado
             var seleccionados = new List<KeyValuePair<int, double>>();
@@ -77,7 +79,7 @@ namespace OptimizacionBinaria.Metaheuristicas
 
                 for (var i = 0; i < miProblema.TotalItems; i++)
                 {
-                    if (_dimensiones[i] == 0 && miProblema.Weight(i) <= pesoDisponible)
+                    if (_dimensiones[i] == 0 && miProblema.Weight(i) <= pesoDisponible && !estaEnlalistaTabu(i,parListaTabu))
                         noSeleccionados.Add(new KeyValuePair<int, double>(i, miProblema.Weight(i)));
                 }
 
@@ -118,8 +120,22 @@ namespace OptimizacionBinaria.Metaheuristicas
 
             Evaluar();
         }
-
-        
+        private Boolean estaEnlalistaTabu(int parDimension, ArrayList listaTabu)
+        {
+            Boolean varResultado = false;
+            foreach(caracteristica obj in listaTabu)
+            {
+                if(obj.atrCaracteristica == parDimension)
+                {
+                    varResultado = true;
+                }
+            }
+            return varResultado;
+        }
+        public int[] getDimensiones()
+        {
+            return _dimensiones;
+        }
 
         public void Evaluar()
         {

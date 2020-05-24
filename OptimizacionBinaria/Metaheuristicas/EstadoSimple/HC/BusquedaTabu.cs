@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OptimizacionBinaria.Funciones;
 using System.Collections;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
 {
@@ -13,52 +14,79 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
         //atributos
         public int MaxLongituLitaTabu;
         public int atrnumeroTweask;
-        private Queue atrListaTabu = new Queue(); 
+        private ArrayList atrListaTabu = new ArrayList();
         public double pm = 0.5;
         public double radio = 10;
-            
-        
+        public int atrIteracionActual;
+        public int atrTimeTabu=3;
+       
+
+
+
 
         public override void Ejecutar(Knapsack parProblema, Random ParAleatorio, Random parAleatorio2)
         {
             EFOs = 0;
-            
+
             var s = new Solucion(parProblema, this);
             s.InicializarAleatorio(ParAleatorio);
             //
-            MejorSolucion = new Solucion(s);
+            MejorSolucion = s;
             //agregoa a la sita tabu
-            atrListaTabu.Enqueue(MejorSolucion);
-            while(EFOs < MaxEFOs)
+            this.AddListaCarateristicas(s,1);
+            atrIteracionActual = 1;
+            while (EFOs < MaxEFOs)
             {
-                if(atrListaTabu.Count >= MaxLongituLitaTabu)
-                {
-                    atrListaTabu.Dequeue();
-                }
+                atrIteracionActual++;
+                //remoder de la lista tabu todas las tublas en la iteracion c -d >l
+                this.DeleteListaCaracteristicas();
                 var r = new Solucion(s);
-                r.Tweak(ParAleatorio, pm, radio);
-                for(int i =0;i< atrnumeroTweask - 1; i++)
+                r.Tweak(ParAleatorio, pm, radio, atrListaTabu);
+                for (int i = 0; i < atrnumeroTweask - 1; i++)
                 {
                     var w = new Solucion(s);
-                    w.Tweak(parAleatorio2, pm, radio);
-                    if (!perteneceListaTabu(w) && (w.fitness > r.fitness || perteneceListaTabu(r)))
+                    w.Tweak(parAleatorio2, pm, radio,atrListaTabu);
+                    if (w.fitness > r.fitness)
                         r = w;
-                    if(!perteneceListaTabu(r) && r.fitness > s.fitness)
-                    {
-                        s = r;
-                        atrListaTabu.Enqueue(r);
-                    }
-                    if(s.fitness > MejorSolucion.fitness)
-                       MejorSolucion = s;
-                
+                    s = r;
+                    this.AddListaCarateristicas(s, atrIteracionActual);
+                    if (s.fitness > MejorSolucion.fitness)
+                        MejorSolucion = s;
+
                 }
             }
 
         }
+        private void AddListaCarateristicas(Solucion parSolucion, int parIteracion)
+        {
+            //1. objtener el vector solucion
+            int[] Dimensione = parSolucion.getDimensiones();
+
+            //2. obtenr las caractirsitcas imersas o unos dentro de la solucion sus dimensiones
+            for (int i = 0; i <= Dimensione.Length - 1; i++)
+            {
+                if (Dimensione[i] == 1)
+                {
+                  caracteristica objCaracteristica = new caracteristica(i, parIteracion);
+                    atrListaTabu.Add(objCaracteristica);
+                }
+            }
+            //3. guradasra en la lista tabu
+        }
+        private void DeleteListaCaracteristicas()
+        {
+            for(int i =0; i<=atrListaTabu.Count-1;i++)
+            {
+                if (atrIteracionActual - ((caracteristica)atrListaTabu[i]).atrIteracion > atrTimeTabu)
+                {
+                    atrListaTabu.RemoveAt(i);
+                }
+            }
+        }
         private Boolean perteneceListaTabu(Solucion parSolucion)
         {
             Boolean varRespuesta = false;
-            foreach(Solucion varSolucion in atrListaTabu)
+            foreach (Solucion varSolucion in atrListaTabu)
             {
                 if (varSolucion.Equals(parSolucion))
                 {
@@ -66,11 +94,29 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
                 }
             }
             return varRespuesta;
-    }
+        }
 
         public override void Ejecutar(Knapsack elProblema, Random aleatorio)
         {
             throw new NotImplementedException();
         }
     }
+
+    public class caracteristica
+    {
+        public int atrCaracteristica; //valor de la dimension dentro del vector
+        public int atrIteracion;
+
+        public caracteristica(int parCarateristica, int parIteracion)
+        {
+            atrCaracteristica = parCarateristica;
+            atrIteracion = parIteracion;
+        }
+
+        
+
+    }
+
+
+
 }

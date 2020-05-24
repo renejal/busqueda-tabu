@@ -25,7 +25,7 @@ namespace OptimizacionBinaria
             };
             var misAlgoritmos = new List<Algoritmo>
             {
-                new BusquedaTabu{pm = 0.5, radio = 10, MaxEFOs = 30000, MaxLongituLitaTabu = 100,atrnumeroTweask=10},
+                new BusquedaTabu{pm = 0.5, radio = 10, MaxEFOs = 1000, MaxLongituLitaTabu = 100,atrnumeroTweask=2},
                 //new AscensoColina {pm = 0.5, radio = 10, MaxEFOs = 30000}
                 //new AscensoColinaMaximaPendiente {pm = 0.5, radio = 10, vecinos = 10, MaxEFOs = 5000},
                 //new AscensoColinaMaximaPendienteConRemplazo {pm = 0.5, radio = 10, vecinos = 10, MaxEFOs = 5000},
