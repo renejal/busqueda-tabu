@@ -48,6 +48,7 @@
     <Compile Include="Funciones\Variable.cs" />
     <Compile Include="Metaheuristicas\EstadoSimple\Algoritmo.cs" />
     <Compile Include="Metaheuristicas\EstadoSimple\HC\BusquedaTabu.cs" />
+    <Compile Include="Metaheuristicas\EstadoSimple\HC\BusquedaTabu2.cs" />
     <Compile Include="Metaheuristicas\Solucion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -25,7 +25,10 @@ namespace OptimizacionBinaria
             };
             var misAlgoritmos = new List<Algoritmo>
             {
-                new BusquedaTabu{pm = 0.5, radio = 10, MaxEFOs = 1000, MaxLongituLitaTabu = 100,atrnumeroTweask=2},
+                //tabu con carateristicas
+                 new BusquedaTabu{pm = 0.5, radio = 10, MaxEFOs = 1000, MaxLongituLitaTabu = 100,atrnumeroTweask=2},
+                //tabu sin caracteristicas
+                new BusquedaTabu2{pm = 0.5, radio = 10, MaxEFOs = 1000, MaxLongituLitaTabu = 100,atrnumeroTweask=2},
                 //new AscensoColina {pm = 0.5, radio = 10, MaxEFOs = 30000}
                 //new AscensoColinaMaximaPendiente {pm = 0.5, radio = 10, vecinos = 10, MaxEFOs = 5000},
                 //new AscensoColinaMaximaPendienteConRemplazo {pm = 0.5, radio = 10, vecinos = 10, MaxEFOs = 5000},
@@ -33,7 +36,7 @@ namespace OptimizacionBinaria
                 //new BusquedaAleatoria() {MaxEFOs = 5000}
             };
 
-            Console.WriteLine("           Ascenso a la Colina (HC)  HC Maxima Pendiente       HC MPendiente Reinicio    HC con Reinicios          Busqueda Aleatoria");
+            Console.WriteLine("       Tabu con caracteristicas  tabu sin caracteristicas");
             foreach (var funcion in misFunciones)
             {
                 Console.Write("funcion  ");
