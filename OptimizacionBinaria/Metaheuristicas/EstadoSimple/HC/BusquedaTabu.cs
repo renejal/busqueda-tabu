@@ -12,13 +12,12 @@ namespace OptimizacionBinaria.Metaheuristicas.EstadoSimple.HC
     public class BusquedaTabu : Algoritmo
     {
         //atributos
-        public int MaxLongituLitaTabu;
         public int atrnumeroTweask;
         private ArrayList atrListaTabu = new ArrayList();
         public double pm = 0.5;
         public double radio = 10;
         public int atrIteracionActual;
-        public int atrTimeTabu=3;
+        public int atrTimeTabu;
        
 
 
